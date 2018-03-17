@@ -353,7 +353,7 @@ class CharlieWing(Matrix):
         return x * 16 + y
 
 class ScrollPhat(Matrix):
-    """Supports the  Pimoronin Scroll Phat
+    """Supports the  Pimoroni Scroll Phat
     """
     width = 17
     height = 7
