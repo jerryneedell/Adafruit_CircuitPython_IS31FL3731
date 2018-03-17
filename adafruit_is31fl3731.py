@@ -51,7 +51,7 @@ import math
 import time
 from micropython import const
 
-__version__ = "0.0.0-auto.0"
+__version__ = "2.1.2"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_IS31FL3731.git"
 
 _MODE_REGISTER = const(0x00)
@@ -351,3 +351,24 @@ class CharlieWing(Matrix):
         else:
             y = 7 - y
         return x * 16 + y
+
+class ScrollPhat(Matrix):
+    """Supports the  Pimoronin Scroll Phat
+    """
+    width = 17
+    height = 7
+
+    @staticmethod
+    def pixel_addr(x, y):
+        """Calulate the offset into the device array for x,y pixel
+        """
+        y = 6 - y
+        if x > 8:
+            x = x - 8
+            y = 6 - (y + 8)
+        else:
+            x = 8 - x
+
+        return x * 16 + y
+
+
